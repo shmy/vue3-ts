@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-button>默认按钮</el-button>
+    <el-empty description="暂无数据"></el-empty>
     <p>home {{loading.isLoading}}</p>
     <button @click="run()">run</button>
     <router-link to="/post">go to post</router-link>

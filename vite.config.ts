@@ -15,5 +15,12 @@ export default defineConfig({
                 }
             ]
         }),
-    ]
+    ],
+    optimizeDeps: {
+        include: [
+            'element-plus/lib/locale/lang/zh-cn',
+            'element-plus/lib/locale',
+            'dayjs/locale/zh-cn'
+        ]
+    }
 })

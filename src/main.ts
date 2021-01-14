@@ -1,8 +1,9 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from "./router";
-import {ElButton} from 'element-plus';
+import elementPlusPlugin from "./plugins/element-plus";
+
 createApp(App)
     .use(router)
-    .use(ElButton)
-    .mount('#app')
+    .use(elementPlusPlugin)
+    .mount('#app');

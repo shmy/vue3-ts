@@ -6,6 +6,7 @@
     "build": "vuedx-typecheck ./src && vite build"
   },
   "dependencies": {
+    "dayjs": "^1.10.3",
     "element-plus": "^1.0.1-beta.23",
     "vue": "^3.0.5",
     "vue-router": "^4.0.2"
