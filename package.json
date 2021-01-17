@@ -6,13 +6,15 @@
     "build": "vuedx-typecheck ./src && vite build"
   },
   "dependencies": {
+    "ant-design-vue": "^2.0.0-rc.6",
     "dayjs": "^1.10.3",
-    "element-plus": "^1.0.1-beta.23",
+    "indexof": "0.0.1",
     "vue": "^3.0.5",
     "vue-router": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.0.4",
+    "@vitejs/plugin-vue-jsx": "^1.0.2",
     "@vue/compiler-sfc": "^3.0.5",
     "@vuedx/typecheck": "^0.4.1",
     "@vuedx/typescript-plugin-vue": "^0.4.1",
