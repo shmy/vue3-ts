@@ -1,4 +1,4 @@
-import {ref} from "vue";
+import {ref, Ref} from "vue";
 
 const DELAY_TIME = 300;
 
@@ -6,10 +6,10 @@ interface UseRequestOptions {
   immediate: boolean;
 }
 
-const useRequest = (url: string, options?: UseRequestOptions) => {
+const useRequest= <T> (url: string, options?: UseRequestOptions) => {
   // TODO: cancel
   const loading = ref<LoadStatus>(LoadStatus.getInstance());
-  const data = ref(null);
+  const data: Ref<T | null> = ref(null);
   const run = () => {
     loading.value.setIdle();
     setTimeout(() => {
