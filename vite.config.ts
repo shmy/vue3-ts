@@ -2,6 +2,8 @@ import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vitePluginImp from 'vite-plugin-imp'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+// @ts-ignore
+import * as path from 'path'
 
 export default defineConfig({
   server: {
@@ -13,6 +15,11 @@ export default defineConfig({
         followRedirects: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       }
+    }
+  },
+  css: {
+    modules: {
+      generateScopedName: "[local]__[hash:base64:5]"
     }
   },
   plugins: [

@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "ant-design-vue": "^2.0.0-rc.8",
+    "axios": "^0.21.1",
     "dayjs": "^1.10.3",
+    "flex.css": "^1.1.7",
     "indexof": "0.0.1",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3"

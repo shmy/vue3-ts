@@ -1,0 +1,15 @@
+@import "flex.css/dist/data-flex.css";
+html {
+  --primary-color: #1890ff;
+  --success-color: #2eca6c;
+  --danger-color: #ff4d4f;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --grey-color: #eff2f4;
+}
+[data-flex^="dir:left"]>[data-flex-box="1"] {
+  width: 0;
+}
+[data-flex^="dir:top"]>[data-flex-box="1"] {
+  height: 0;
+}

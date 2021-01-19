@@ -5,8 +5,8 @@ const DELAY_TIME = 300;
 interface UseRequestOptions {
   immediate: boolean;
 }
-
-const useRequest = <T>(url: string, options?: UseRequestOptions) => {
+type Fetcher<T> = () => Promise<T>;
+const useRequest = <T>(fetcher: Fetcher<T>, options?: UseRequestOptions) => {
   // TODO: cancel
   const loading = ref<LoadStatus>(LoadStatus.getInstance());
   const data: Ref<T | null> = ref(null);
@@ -17,10 +17,7 @@ const useRequest = <T>(url: string, options?: UseRequestOptions) => {
         loading.value.setLoading();
       }
     }, DELAY_TIME);
-    fetch(url, {
-      method: 'post'
-    })
-      .then(res => res.json())
+    fetcher()
       .then((res) => {
         data.value = res;
       })
