@@ -6,11 +6,12 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   server: {
     proxy: {
-      '^\/api': {
-        target: 'http://www.zdziyuan.com/inc/s_feifei3.4',
+      '/api': {
+        target: 'https://api.juejin.cn/recommend_api/v1',
         changeOrigin: true,
         autoRewrite: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        followRedirects: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       }
     }
   },

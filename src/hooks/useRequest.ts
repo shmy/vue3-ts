@@ -6,7 +6,7 @@ interface UseRequestOptions {
   immediate: boolean;
 }
 
-const useRequest= <T> (url: string, options?: UseRequestOptions) => {
+const useRequest = <T>(url: string, options?: UseRequestOptions) => {
   // TODO: cancel
   const loading = ref<LoadStatus>(LoadStatus.getInstance());
   const data: Ref<T | null> = ref(null);
@@ -17,10 +17,12 @@ const useRequest= <T> (url: string, options?: UseRequestOptions) => {
         loading.value.setLoading();
       }
     }, DELAY_TIME);
-    fetch(url)
+    fetch(url, {
+      method: 'post'
+    })
       .then(res => res.json())
       .then((res) => {
-        data.value = res.data;
+        data.value = res;
       })
       .catch(() => {
         loading.value.setError();
@@ -31,10 +33,8 @@ const useRequest= <T> (url: string, options?: UseRequestOptions) => {
         }, loading.value.isIdle ? 0 : DELAY_TIME);
       })
   };
-  if (options) {
-    if (options.immediate) {
-      run();
-    }
+  if (options?.immediate) {
+    run();
   }
   return {
     loading,
